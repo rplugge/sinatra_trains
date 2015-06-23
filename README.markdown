@@ -1,39 +1,36 @@
-# Railway System Database Manager
+# Railfan
 
-This will be a tool to help rail-way users find train times and stations.
-
-### Stations
-
-- id - integer
-- name - string
-
-
-### Tracks
-
-- Tracks connect the stations, only 1 exists between two stations.
-
-- id - integer
-- name - string
-
+ Railfan is an application with a few purposes.
+ 
+ - Track all the trains you've riden on
+ - Search and find trains you've yet to ride on, or search by location
+ - Earn titles and compare your progress to others
 
 ### Trains
 
 - id - integer
 - name - string
+- location_id - integer
 
-### TrainLog
 
-The individual rides between stations. Stores passengers who were on that train/which train it was
+### Locations
 
 - id - integer
-- date - string
-- train_id - integer
-- passengers - string
+- name - Station Name - string
+
 
 ### Passenger
 
-The individual passenger, should have id, name, and should store their current ticket if they have one. 
+- id - integer
+- name - string
+- title - string
 
+### Log
+
+- The log will store the events.
+
+- passenger_id - integer
+- train_id - integer
 
 ## Should
 
@@ -41,16 +38,19 @@ The user should be able to search for trains by location, and should be able to 
 
 - Add/Edit/View/Delete Passenger
 - Add/Edit/View/Delete Trains
-- Add/Edit/View/Delete Stations
+- Add/Edit/View/Delete Locations
 - Add/Edit/View/Delete Tracks
 - Add/Edit/View/Delete TrainLog
-- Be able to buy a ticket, and once the train has run remove all tickets that were used.
+
+- Should store an event anytime someone rides a train.
+- There should be a way to retrieve all the trains a user has ridden (and the number of trains)
+- Should update title for a user based on number of trains ridden
+- Should be able to list all users based on ranking
 
 ## Should-not
 
-- Be able to ride trains between non-connected stations
-- Add Passenger log without information
-- Be able to add a railways that already exists
+- Be able to add a Log without a train/passenger
+- Should not be able to have empty fields in Trains/Locations
 
 ##Requirements
 
