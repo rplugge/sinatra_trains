@@ -8,9 +8,9 @@ This will be a tool to help rail-way users find train times and stations.
 - name - string
 
 
-### Railways
+### Tracks
 
-- Railways connect the stations, only 1 exists between each station.
+- Tracks connect the stations, only 1 exists between two stations.
 
 - id - integer
 - name - string
@@ -21,32 +21,30 @@ This will be a tool to help rail-way users find train times and stations.
 - id - integer
 - name - string
 
-### Passenger log
+### TrainLog
 
-The individuals who ride the trains.
+The individual rides between stations. Stores passengers who were on that train/which train it was
 
 - id - integer
-- name - string
+- date - string
 - train_id - integer
+- passengers - string
+
+### Passenger
+
+The individual passenger, should have id, name, and should store their current ticket if they have one. 
 
 
 ## Should
 
-We should be able to;
+The user should be able to search for trains by location, and should be able to buy a ticket to ride said train.
 
-- Add new passenger log
-- View passenger log
-- Add new trains
-- Edit trains
-- Delete trains
-- View train information
-- Add new stations
-- Edit stations
-- Delete stations
-- View station information
-- Add railways
-- Delete railways
-- View railways
+- Add/Edit/View/Delete Passenger
+- Add/Edit/View/Delete Trains
+- Add/Edit/View/Delete Stations
+- Add/Edit/View/Delete Tracks
+- Add/Edit/View/Delete TrainLog
+- Be able to buy a ticket, and once the train has run remove all tickets that were used.
 
 ## Should-not
 
