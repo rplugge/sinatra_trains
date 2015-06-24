@@ -23,10 +23,12 @@ class Train
     @location_id = options["location_id"]
   end
 
+  # - Updates the row for Train object with new (or same) values
   def save
     CONNECTION.execute("UPDATE trains SET name = '#{@name}', location_id = #{@location_id} WHERE id = #{@id};")
   end
   
+  # - Deletes row from trains assosiated with Train object
   def delete
     CONNECTION.execute("DELETE FROM trains WHERE id = #{@id};")
   end
