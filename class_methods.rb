@@ -3,33 +3,6 @@ module ClassModule
   require "active_support"
   require "active_support/inflector"
   
-  # - Runs a loop for each row in table.
-  # - Returns a hash that is split into a readable form.
-  def book_table
-    puts "ID - NAME - GENRE_ID - LOCATION_ID - QUANTITY"
-    self.all.each do |book_hash|
-      puts "#{book_hash.id} - #{book_hash.name} - #{book_hash.genre_id} - #{book_hash.location_id} - #{book_hash.quantity}"
-    end
-  end
-  
-  # - Returns all columns for every genre in table
-  # - Returns a hash that is split into a readable form.
-  def genre_table
-    puts "ID - Name"
-    self.all.each do |genre_hash|
-      puts "#{genre_hash.id} - #{genre_hash.name}"
-    end
-  end
-  
-  # - Returns all columns for every location in table.
-  # - Returns a hash that is split into a readable form.
-  def location_table
-    puts "ID - Name"
-    
-    self.all.each do |location_hash|
-      puts "#{location_hash.id} - #{location_hash.name}"
-    end
-  end
 
   # - Class Method - Gathers all information from the table that is assosiated with the class this is being called on.
   #
@@ -99,3 +72,32 @@ module ClassModule
     self.new(options)
   end
 end
+
+
+# # - Runs a loop for each row in table.
+# # - Returns a hash that is split into a readable form.
+# def book_table
+#   puts "ID - NAME - GENRE_ID - LOCATION_ID - QUANTITY"
+#   self.all.each do |book_hash|
+#     puts "#{book_hash.id} - #{book_hash.name} - #{book_hash.genre_id} - #{book_hash.location_id} - #{book_hash.quantity}"
+#   end
+# end
+#
+# # - Returns all columns for every genre in table
+# # - Returns a hash that is split into a readable form.
+# def genre_table
+#   puts "ID - Name"
+#   self.all.each do |genre_hash|
+#     puts "#{genre_hash.id} - #{genre_hash.name}"
+#   end
+# end
+#
+# # - Returns all columns for every location in table.
+# # - Returns a hash that is split into a readable form.
+# def location_table
+#   puts "ID - Name"
+#
+#   self.all.each do |location_hash|
+#     puts "#{location_hash.id} - #{location_hash.name}"
+#   end
+# end
