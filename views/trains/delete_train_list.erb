@@ -1,0 +1,16 @@
+<h1>Which train would you like to delete?</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>LOCATION_ID</th>
+  </tr>
+  <% Train.all.each do |train| %>
+    <tr>
+      <td><%= train.id %></td>
+      <td><a href="/delete_train/<%= train.id %>"><%= train.name %></a></td>
+      <td><%= train.location_id%></td>
+    </tr>
+  <% end %>
+</table>

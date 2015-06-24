@@ -31,3 +31,14 @@ get "/change_train/:id" do
   
   erb :"main/success"
 end
+
+get "/delete_train" do
+  erb :"trains/delete_train_list"
+end
+
+get "/delete_train/:id" do
+  train_object = Train.find(params["id"].to_i)
+  train_object.delete
+  
+  erb :"main/success"
+end
