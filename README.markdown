@@ -39,8 +39,7 @@ The user should be able to search for trains by location, and should be able to 
 - Add/Edit/View/Delete Passenger
 - Add/Edit/View/Delete Trains
 - Add/Edit/View/Delete Locations
-- Add/Edit/View/Delete Tracks
-- Add/Edit/View/Delete TrainLog
+- Add/Edit/View/Delete Log
 
 - Should store an event anytime someone rides a train.
 - There should be a way to retrieve all the trains a user has ridden (and the number of trains)
