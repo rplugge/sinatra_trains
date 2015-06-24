@@ -12,3 +12,5 @@ require_relative "class_methods.rb"
 require_relative "models/train.rb"
 
 # Controllers
+require_relative "controllers/main.rb"
+require_relative "controllers/trains.rb"

@@ -1,0 +1,20 @@
+<h1>Trains!</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>LOCATION_ID</th>
+  </tr>
+  <% Train.all.each do |train| %>
+    <tr>
+      <td><%= train.id %></td>
+      <td><%= train.name %></a></td>
+      <td><%= train.location_id%></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+<p><a href="/home">Home Page</a></p>

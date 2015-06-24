@@ -1,3 +1,3 @@
 get "/home" do
-  erb ":main/homepage"
+  erb :"main/homepage"
 end
