@@ -1,18 +1,10 @@
-require "sqlite3"
-require "active_support"
-require "active_support/inflector"
-
-require_relative "class_methods"
-
-CONNECTION = SQLite3::Database.new("railfan.db")
-
-CONNECTION.execute("CREATE TABLE IF NOT EXISTS trains (id INTEGER PRIMARY KEY, name TEXT NOT NULL, location_id INTEGER NOT NULL, FOREIGN KEY(location_id) REFERENCES locations(id));")
-
-CONNECTION.results_as_hash = true
 
 class Train
   
+  extend ClassModule
+  
   attr_accessor :name, :location_id
+  attr_reader :id
   
   # id - Primary Key - Integer
   # name - String
