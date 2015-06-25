@@ -22,6 +22,10 @@ class Location
   def delete
     CONNECTION.execute("DELETE FROM locations WHERE id = #{@id};")
   end
+  
+  def add_to_database
+    CONNECTION.execute("INSERT INTO locations (name) VALUES ('#{@name})';")
+  end
 end
 
   

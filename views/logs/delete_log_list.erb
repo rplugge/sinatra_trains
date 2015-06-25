@@ -1,0 +1,16 @@
+<h1>Which log entry would you like to delete?</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>USER_ID</th>
+    <th>TRAIN_ID</th>
+  </tr>
+  <% Log.all.each do |log| %>
+    <tr>
+      <td><a href="/delete_log/<%= log.id %>"><%= log.id %></td>
+      <td><%= log.user_id %></a></td>
+      <td><%= log.train_id%></td>
+    </tr>
+  <% end %>
+</table>

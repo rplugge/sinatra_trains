@@ -5,7 +5,7 @@ end
 get "/save_train" do
   new_train = Train.new({"name" => params["train"]["name"], "location_id" => params["train"]["location_id"]})
   
-  Train.add({"name" => params["train"]["name"], "location_id" => params["train"]["location_id"]})
+  new_train.add_to_database
   
   erb :"main/success"
 end

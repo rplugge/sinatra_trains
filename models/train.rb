@@ -24,6 +24,12 @@ class Train
   def delete
     CONNECTION.execute("DELETE FROM trains WHERE id = #{@id};")
   end
+  
+  def add_to_database
+    a = "INSERT INTO trains (name, location_id) VALUES ('#{@name}', #{@location_id});"
+    binding.pry
+    CONNECTION.execute(a)
+  end
 end
 
   

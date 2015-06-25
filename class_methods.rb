@@ -25,7 +25,7 @@ module ClassModule
 
   # - Retrieves information from a table with the row id == to arguement id
   #
-  # - Creates a new object
+  # - id - INTEGER - The Primary Key for a row in a table. 
   #
   # - Returns object
   def find(id)
@@ -40,7 +40,7 @@ module ClassModule
   # - Adds a new row into a table with the values taken in the arguement.
   # - Seperates values and keys, puts them into arrays to be put into SQL.
   #
-  # - options - Hash
+  # - options - Hash - contains the information to insert into a table
   #
   # - Returns an object
   def add(options={})

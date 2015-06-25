@@ -1,0 +1,14 @@
+<h1>Which user would you like to view logs for?</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+  </tr>
+  <% User.all.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><a href="/view_logs/<%= user.id %>"><%= user.name %></a></td>
+    </tr>
+  <% end %>
+</table>

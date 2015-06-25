@@ -5,7 +5,7 @@ end
 get "/save_location" do
   new_location = Location.new({"name" => params["location"]["name"]})
   
-  Location.add({"name" => params["location"]["name"]})
+  new_location.add_to_database
   
   erb :"main/success"
 end

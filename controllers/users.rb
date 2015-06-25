@@ -5,7 +5,7 @@ end
 get "/save_user" do
   new_user = User.new({"name" => params["user"]["name"]})
   
-  User.add({"name" => params["user"]["name"]})
+  new_user.add_to_database
   
   erb :"main/success"
 end

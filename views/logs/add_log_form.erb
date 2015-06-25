@@ -1,0 +1,36 @@
+<form action ="/save_log">
+  <input type="text" placeholder="User ID" name="log[user_id]" value="<%= params["user_id"] %>">
+  <input type="text" placeholder="Train ID" name="log[train_id]" value="<%= params["train_id"] %>">
+  
+  <input type="submit">
+</form>
+
+
+<p><h3>Users</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+    </tr>
+    <% User.all.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></a></td>
+      </tr>
+      <% end %>
+</table></p>
+<p><h3>Locations</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>LOCATION_ID</th>
+    </tr>
+    <% Train.all.each do |train| %>
+      <tr>
+        <td><%= train.id %></td>
+        <td><%= train.name %></a></td>
+        <td><%= train.location_id%></td>
+      </tr>
+      <% end %>
+</table></p>
