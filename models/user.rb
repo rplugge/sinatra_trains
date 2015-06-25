@@ -25,6 +25,7 @@ class User
     CONNECTION.execute("DELETE FROM users WHERE id = #{@id};")
   end
   
+  # - Adds values for the object into a new row in the database
   def add_to_database
     CONNECTION.execute("INSERT INTO users (name) VALUES ('#{@name}');")
   end

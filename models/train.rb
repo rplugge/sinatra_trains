@@ -25,6 +25,7 @@ class Train
     CONNECTION.execute("DELETE FROM trains WHERE id = #{@id};")
   end
   
+  # - Adds values for the object into a new row in the database
   def add_to_database
     a = "INSERT INTO trains (name, location_id) VALUES ('#{@name}', #{@location_id});"
     binding.pry

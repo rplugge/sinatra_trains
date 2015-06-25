@@ -23,6 +23,7 @@ class Location
     CONNECTION.execute("DELETE FROM locations WHERE id = #{@id};")
   end
   
+  # - Adds values for the object into a new row in the database
   def add_to_database
     CONNECTION.execute("INSERT INTO locations (name) VALUES ('#{@name})';")
   end
