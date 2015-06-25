@@ -3,9 +3,9 @@ get "/add_location" do
 end
 
 get "/save_location" do
-  new_location = Location.new({"name" => params["name"]})
+  new_location = Location.new({"name" => params["location"]["name"]})
   
-  Location.add({"name" => params["name"]})
+  Location.add({"name" => params["location"]["name"]})
   
   erb :"main/success"
 end

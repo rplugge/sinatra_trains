@@ -11,3 +11,18 @@
   
   <input type="submit">
 </form> 
+
+
+<h3>Locations</h3>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+  </tr>
+  <% Location.all.each do |location| %>
+    <tr>
+      <td><%= location.id %></td>
+      <td><%= location.name %></a></td>
+    </tr>
+  <% end %>
+</table>

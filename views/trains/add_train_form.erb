@@ -1,6 +1,21 @@
 <form action ="/save_train">
-  <input type="text" placeholder="Train Name" name="name" value="<%= params["name"] %>">
-  <input type="location_id" placeholder="Train Location" name="location_id" value="<%= params["location_id"] %>">
+  <input type="text" placeholder="Train Name" name="train[name]" value="<%= params["name"] %>">
+  <input type="location_id" placeholder="Train Location" name="train[location_id]" value="<%= params["location_id"] %>">
   
   <input type="submit">
 </form>
+
+
+<h3>Locations</h3>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+  </tr>
+  <% Location.all.each do |location| %>
+    <tr>
+      <td><%= location.id %></td>
+      <td><%= location.name %></a></td>
+    </tr>
+  <% end %>
+</table>

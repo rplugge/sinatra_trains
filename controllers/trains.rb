@@ -3,9 +3,9 @@ get "/add_train" do
 end
 
 get "/save_train" do
-  new_train = Train.new({"name" => params["name"], "location_id" => params["location_id"]})
+  new_train = Train.new({"name" => params["train"]["name"], "location_id" => params["train"]["location_id"]})
   
-  Train.add({"name" => params["name"], "location_id" => params["location_id"]})
+  Train.add({"name" => params["train"]["name"], "location_id" => params["train"]["location_id"]})
   
   erb :"main/success"
 end
