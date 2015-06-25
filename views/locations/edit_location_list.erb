@@ -1,0 +1,14 @@
+<h1>Which location would you like to edit?</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+  </tr>
+  <% Location.all.each do |location| %>
+    <tr>
+      <td><%= location.id %></td>
+      <td><a href="/edit_location/<%= location.id %>"><%= location.name %></a></td>
+    </tr>
+  <% end %>
+</table>

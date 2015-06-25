@@ -1,0 +1,18 @@
+<h1>Locations!</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+  </tr>
+  <% Location.all.each do |location| %>
+    <tr>
+      <td><%= location.id %></td>
+      <td><%= location.name %></a></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+<p><a href="/home">Home Page</a></p>
