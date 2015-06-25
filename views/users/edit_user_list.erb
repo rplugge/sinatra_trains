@@ -1,0 +1,14 @@
+<h1>Which user would you like to edit?</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+  </tr>
+  <% User.all.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><a href="/edit_user/<%= user.id %>"><%= user.name %></a></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,12 @@
+<h1> What would you like to edit about this user? </h1>
+
+
+<form action="/change_user/<%= params["id"] %>">
+  <select name="edit_choice">
+      <option value="name">Name</option>
+  </select>
+
+  <input type="text" name="new_input" placeholder="New Input">
+  
+  <input type="submit">
+</form> 
