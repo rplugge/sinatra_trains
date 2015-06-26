@@ -14,11 +14,10 @@ get "/view_logs" do
   erb :"logs/view_logs"
 end
 
+
 get "/view_logs/:id" do
-  user = Log.find(params["id"])
-  @array = user.where_id
+  @user_logs = Log.logs_for_user(params["id"])
   
-  binding.pry
   erb :"logs/view_log_list"
 end
 

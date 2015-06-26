@@ -29,26 +29,21 @@ class Log
   
   # - Adds values for the object into a new row in the database
   def add_to_database
-    CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (@user_id, @train_id);")
+    CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (#{@user_id}, #{@train_id});")
   end
   
-  # - First runs some SQL returning the names of all trains with an ID == the train_id in the Log table for that user
-  #
-  # - Runs a loop on the first array removing the extra information and inserting it into a new "cleaner" array.
-  #
-  # - Returns the "clean" array.
-  def where_id
-    messy_train_array = CONNECTION.execute("SELECT name FROM trains WHERE id = #{@train_id}")
-    
-    train_array = []
   
-    messy_train_array.each do |a|
-      train_array << a["name"]
+  def self.logs_for_user(this_id)
+    result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{this_id}")
+    
+    log_array = []
+    
+    result.each do |result|
+      log_array << result["name"]
     end
     
-    return train_array
+    return log_array
   end
-  
 end
 
   
