@@ -26,6 +26,7 @@ get "/change_train/:id" do
   column = params["edit_choice"]
   
   train_object = Train.find(params["id"].to_i)
+
   train_object.send("#{column}=", params["new_input"])
   train_object.save
   

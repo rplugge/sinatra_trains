@@ -45,8 +45,6 @@ class User
     
     trains_ridden = log_array.length
     
-    binding.pry
-    
     if trains_ridden >= 0 && trains_ridden <= 5
       @title = "Newbie"
     elsif trains_ridden >= 5 && trains_ridden <= 20
