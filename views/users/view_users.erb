@@ -4,11 +4,13 @@
   <tr>
     <th>ID</th>
     <th>NAME</th>
+    <th>TITLE</th>
   </tr>
   <% User.all.each do |user| %>
     <tr>
       <td><%= user.id %></td>
       <td><%= user.name %></a></td>
+      <td><%= user.title %></td>
     </tr>
   <% end %>
 </table>

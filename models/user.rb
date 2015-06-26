@@ -13,6 +13,10 @@ class User
     @id = options["id"]
     @name = options["name"]
     @title = options["title"]
+    
+    if @id != nil
+      self.find_title
+    end
   end
 
   # - Updates the row for User object with new (or same) values
@@ -28,6 +32,30 @@ class User
   # - Adds values for the object into a new row in the database
   def add_to_database
     CONNECTION.execute("INSERT INTO users (name) VALUES ('#{@name}');")
+  end
+  
+  def find_title
+    result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{@id}")
+    
+    log_array = []
+    
+    result.each do |result|
+      log_array << result["name"]
+    end
+    
+    trains_ridden = log_array.length
+    
+    binding.pry
+    
+    if trains_ridden >= 0 && trains_ridden <= 5
+      @title = "Newbie"
+    elsif trains_ridden >= 5 && trains_ridden <= 20
+      @title = "Train Enthusiast"
+    elsif trains_ridden > 20
+      @title = "Lord of the Trains"
+    end
+    
+    return self
   end
 end
 
