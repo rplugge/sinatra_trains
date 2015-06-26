@@ -29,9 +29,15 @@ class Log
   
   # - Adds values for the object into a new row in the database
   def add_to_database
-    CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (#{@user_id}, #{@train_id});")
+    if self.unique?
+      CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (#{@user_id}, #{@train_id});")
+    end
   end
   
+  def unique?
+    existing_record = CONNECTION.execute("SELECT * FROM logs WHERE user_id = #{@user_id} AND train_id = #{@train_id}")
+    return existing_record == []
+  end
   
   def self.logs_for_user(this_id)
     result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{this_id}")

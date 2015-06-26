@@ -5,9 +5,11 @@ end
 get "/save_log" do
   new_log = Log.new({"user_id" => params["log"]["user_id"], "train_id" => params["log"]["train_id"]})
   
-  new_log.add_to_database
-  
-  erb :"main/success"
+  if new_log.add_to_database
+    erb :"main/success"
+  else
+    erb :"main/log_failure"
+  end
 end
 
 get "/view_logs" do
