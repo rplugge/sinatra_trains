@@ -9,6 +9,8 @@ class User
   # id - Primary Key - Integer
   # name - String
   # title - The title of the person (is based on how many trains have been ridden) - STRING
+  #
+  # If the User object has an id then it runs the method .find_title on the object.
   def initialize(options={})
     @id = options["id"]
     @name = options["name"]
@@ -34,6 +36,9 @@ class User
     CONNECTION.execute("INSERT INTO users (name) VALUES ('#{@name}');")
   end
   
+  # - Retrieves all the trains a user has ridden and puts each train name in an array. 
+  # - Runs .length on the array to determine the number of trains ridden (trians_ridden)
+  # - Updates @title with the new 'title' based on number of trains ridden
   def find_title
     result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{@id}")
     

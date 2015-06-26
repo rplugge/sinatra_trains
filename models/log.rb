@@ -27,18 +27,28 @@ class Log
     CONNECTION.execute("DELETE FROM logs WHERE id = #{@id};")
   end
   
-  # - Adds values for the object into a new row in the database
+  # - Adds values for the object into a new row in the database if the entry is unique
+  #
+  # - Returns false if the object was not unique
   def add_to_database
     if self.unique?
       CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (#{@user_id}, #{@train_id});")
     end
   end
   
+  # - Checks to see if a log entry with the same user_id and train_id exists.
+  #
+  # - Returns true if no records are returned.
   def unique?
     existing_record = CONNECTION.execute("SELECT * FROM logs WHERE user_id = #{@user_id} AND train_id = #{@train_id}")
     return existing_record == []
   end
   
+  # - Retrieves all the names of trains that a user has ridden.
+  #
+  # - this_id = The User id - INTEGER
+  #
+  # - Returns an array of train names
   def self.logs_for_user(this_id)
     result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{this_id}")
     
