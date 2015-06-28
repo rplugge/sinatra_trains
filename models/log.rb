@@ -33,6 +33,9 @@ class Log
   def add_to_database
     if self.unique?
       CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (#{@user_id}, #{@train_id});")
+      @id = CONNECTION.last_insert_row_id
+      
+      return self
     end
   end
   

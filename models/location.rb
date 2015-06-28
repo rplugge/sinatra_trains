@@ -26,6 +26,9 @@ class Location
   # - Adds values for the object into a new row in the database
   def add_to_database
     CONNECTION.execute("INSERT INTO locations (name) VALUES ('#{@name})';")
+    @id = CONNECTION.last_insert_row_id
+    
+    return self
   end
 end
 

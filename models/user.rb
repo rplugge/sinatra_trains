@@ -34,6 +34,7 @@ class User
   # - Adds values for the object into a new row in the database
   def add_to_database
     CONNECTION.execute("INSERT INTO users (name) VALUES ('#{@name}');")
+    @id = CONNECTION.last_insert_row_id
   end
   
   # - Retrieves all the trains a user has ridden and puts each train name in an array. 
