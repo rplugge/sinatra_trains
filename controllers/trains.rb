@@ -1,4 +1,5 @@
 get "/add_train" do
+  @page_title = "Add Train"
   erb :"trains/add_train_form"
 end
 
@@ -11,14 +12,17 @@ get "/save_train" do
 end
 
 get "/view_trains" do
+  @page_title = "View Trains"
   erb :"trains/view_trains"
 end
 
 get "/edit_train" do
+  @page_title = "Edit Train"
   erb :"trains/edit_train_list"
 end
 
 get "/edit_train/:id" do
+  @page_title = "Edit Train"
   erb :"trains/edit_train_form"
 end
 
@@ -34,10 +38,12 @@ get "/change_train/:id" do
 end
 
 get "/delete_train" do
+  @page_title = "Delete Train"
   erb :"trains/delete_train_list"
 end
 
 get "/delete_train/:id" do
+  @page_title = "Delete Train"
   train_object = Train.find(params["id"].to_i)
   train_object.delete
   

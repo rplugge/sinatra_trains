@@ -1,4 +1,5 @@
 get "/add_user" do
+  @page_title = "Add User"
   erb :"users/add_user_form"
 end
 
@@ -11,14 +12,17 @@ get "/save_user" do
 end
 
 get "/view_users" do
+  @page_title = "View Users"
   erb :"users/view_users"
 end
 
 get "/edit_user" do
+  @page_title = "Edit User"
   erb :"users/edit_user_list"
 end
 
 get "/edit_user/:id" do
+  @page_title = "Edit User"
   erb :"users/edit_user_form"
 end
 
@@ -33,6 +37,7 @@ get "/change_user/:id" do
 end
 
 get "/delete_user" do
+  @page_title = "Delete User"
   erb :"users/delete_user_list"
 end
 

@@ -1,6 +1,7 @@
 
 class Train
   
+  include InstanceModule
   extend ClassModule
   
   attr_accessor :name, :location_id

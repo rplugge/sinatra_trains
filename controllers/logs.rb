@@ -1,4 +1,5 @@
 get "/add_log" do
+  @page_title = "Add Log"
   erb :"logs/add_log_form"
 end
 
@@ -13,21 +14,25 @@ get "/save_log" do
 end
 
 get "/view_logs" do
+  @page_title = "View Logs"
   erb :"logs/view_logs"
 end
 
 
 get "/view_logs/:id" do
+  @page_title = "View Logs"
   @user_logs = Log.logs_for_user(params["id"])
   
   erb :"logs/view_log_list"
 end
 
 get "/edit_log" do
+  @page_title = "Edit Log"
   erb :"logs/edit_log_list"
 end
 
 get "/edit_log/:id" do
+  @page_title = "Edit Log"
   erb :"logs/edit_log_form"
 end
 
@@ -42,6 +47,7 @@ get "/change_log/:id" do
 end
 
 get "/delete_log" do
+  @page_title = "Delete Log"
   erb :"logs/delete_log_list"
 end
 

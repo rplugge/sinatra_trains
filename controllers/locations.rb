@@ -1,4 +1,5 @@
 get "/add_location" do
+  @page_title = "Add Location"
   erb :"locations/add_location_form"
 end
 
@@ -11,14 +12,17 @@ get "/save_location" do
 end
 
 get "/view_locations" do
+  @page_title = "View Locations"
   erb :"locations/view_locations"
 end
 
 get "/edit_location" do
+  @page_title = "Edit Location"
   erb :"locations/edit_location_list"
 end
 
 get "/edit_location/:id" do
+  @page_title = "Edit Location"
   erb :"locations/edit_location_form"
 end
 
@@ -33,6 +37,7 @@ get "/change_location/:id" do
 end
 
 get "/delete_location" do
+  @page_title = "Delete Location"
   erb :"locations/delete_location_list"
 end
 

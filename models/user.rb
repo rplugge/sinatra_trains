@@ -1,6 +1,7 @@
 
 class User
   
+  include InstanceModule
   extend ClassModule
   
   attr_accessor :name, :title
@@ -43,13 +44,14 @@ class User
   def find_title
     result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{@id}")
     
-    log_array = []
+    new_array = []
     
-    result.each do |result|
-      log_array << result["name"]
+    #new_array = result.name_loop
+    result.each do |item|
+      new_array << item["name"]
     end
     
-    trains_ridden = log_array.length
+    trains_ridden = new_array.length
     
     if trains_ridden >= 0 && trains_ridden <= 5
       @title = "Newbie"

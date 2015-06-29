@@ -3,7 +3,6 @@ module ClassModule
   require "active_support"
   require "active_support/inflector"
   
-  
   def table_name
     self.to_s.pluralize.underscore
   end

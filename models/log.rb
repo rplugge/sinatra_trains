@@ -1,6 +1,7 @@
 
 class Log
   
+  include InstanceModule
   extend ClassModule
   
   attr_accessor :user_id, :train_id 
@@ -55,13 +56,12 @@ class Log
   def self.logs_for_user(this_id)
     result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{this_id}")
     
-    log_array = []
-    
-    result.each do |result|
-      log_array << result["name"]
+    #new_array = result.name_loop
+    result.each do |item|
+      new_array << item["name"]
     end
     
-    return log_array
+    return new_array
   end
 end
 
