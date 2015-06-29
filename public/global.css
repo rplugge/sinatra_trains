@@ -4,3 +4,38 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+body {
+  background-image: url("http://www.goldenvisionforyou.com/blog/wp-content/themes/socrates/background-images/bluegredient_new.jpg");
+}
+
+.button_menu li {
+  display: block;
+}
+
+.spacing {
+  margin-left: 170px;
+}
+
+.button_menu ul {
+  -webkit-padding-start: 5px;
+}
+
+.button {
+  display:inline-block;
+  min-width: 50px;
+  width: 100%;
+  padding:5px 10px;
+  
+  background: #33CCff;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  text-decoration: none;
+  
+  border-style: solid;
+  border-width: 2px;
+}
