@@ -16,18 +16,18 @@ class Location
 
   # - Updates the row for Location object with new (or same) values
   def save
-    CONNECTION.execute("UPDATE locations SET name = '#{@name}' WHERE id = #{@id};")
+    CONNECTION.execute("UPDATE locations SET name = '#{self.name}' WHERE id = #{self.id};")
   end
   
   # - Deletes row from locations assosiated with Location object
   def delete
-    CONNECTION.execute("DELETE FROM locations WHERE id = #{@id};")
+    CONNECTION.execute("DELETE FROM locations WHERE id = #{self.id};")
   end
   
   # - Adds values for the object into a new row in the database
   def add_to_database
-    CONNECTION.execute("INSERT INTO locations (name) VALUES ('#{@name})';")
-    @id = CONNECTION.last_insert_row_id
+    CONNECTION.execute("INSERT INTO locations (name) VALUES ('#{self.name})';")
+    self.id = CONNECTION.last_insert_row_id
     
     return self
   end

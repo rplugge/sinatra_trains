@@ -20,12 +20,12 @@ class Log
   def save
     @user_id = @user_id.to_i
     @train_id = @train_id.to_i
-    CONNECTION.execute("UPDATE logs SET user_id = '#{@user_id}', train_id = '#{@train_id} WHERE id = #{@id};")
+    CONNECTION.execute("UPDATE logs SET user_id = '#{self.id}', train_id = '#{self.id} WHERE id = #{self.id};")
   end
   
   # - Deletes row from logs assosiated with Log object
   def delete
-    CONNECTION.execute("DELETE FROM logs WHERE id = #{@id};")
+    CONNECTION.execute("DELETE FROM logs WHERE id = #{self.id};")
   end
   
   # - Adds values for the object into a new row in the database if the entry is unique
@@ -33,7 +33,7 @@ class Log
   # - Returns false if the object was not unique
   def add_to_database
     if self.unique?
-      CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (#{@user_id}, #{@train_id});")
+      CONNECTION.execute("INSERT INTO logs (user_id, train_id) VALUES (#{self.user_id}, #{self.train_id});")
       @id = CONNECTION.last_insert_row_id
       
       return self
@@ -44,7 +44,7 @@ class Log
   #
   # - Returns true if no records are returned.
   def unique?
-    existing_record = CONNECTION.execute("SELECT * FROM logs WHERE user_id = #{@user_id} AND train_id = #{@train_id}")
+    existing_record = CONNECTION.execute("SELECT * FROM logs WHERE user_id = #{self.user_id} AND train_id = #{self.train_id}")
     return existing_record == []
   end
   
@@ -57,9 +57,6 @@ class Log
     result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{this_id}")
     
     #new_array = result.name_loop
-    result.each do |item|
-      new_array << item["name"]
-    end
     
     return new_array
   end

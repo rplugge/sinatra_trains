@@ -24,17 +24,17 @@ class User
 
   # - Updates the row for User object with new (or same) values
   def save
-    CONNECTION.execute("UPDATE users SET name = '#{@name}' WHERE id = #{@id};")
+    CONNECTION.execute("UPDATE users SET name = '#{self.name}' WHERE id = #{self.id};")
   end
   
   # - Deletes row from trains assosiated with Train object
   def delete
-    CONNECTION.execute("DELETE FROM users WHERE id = #{@id};")
+    CONNECTION.execute("DELETE FROM users WHERE id = #{self.id};")
   end
   
   # - Adds values for the object into a new row in the database
   def add_to_database
-    CONNECTION.execute("INSERT INTO users (name) VALUES ('#{@name}');")
+    CONNECTION.execute("INSERT INTO users (name) VALUES ('#{self.name}');")
     @id = CONNECTION.last_insert_row_id
   end
   
@@ -42,14 +42,11 @@ class User
   # - Runs .length on the array to determine the number of trains ridden (trians_ridden)
   # - Updates @title with the new 'title' based on number of trains ridden
   def find_title
-    result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{@id}")
+    result = CONNECTION.execute("SELECT trains.name FROM logs JOIN trains ON logs.train_id = trains.id WHERE logs.user_id = #{self.id}")
     
     new_array = []
     
-    #new_array = result.name_loop
-    result.each do |item|
-      new_array << item["name"]
-    end
+    new_array = result.name_loop
     
     trains_ridden = new_array.length
     

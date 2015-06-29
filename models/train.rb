@@ -18,17 +18,17 @@ class Train
 
   # - Updates the row for Train object with new (or same) values
   def save
-    CONNECTION.execute("UPDATE trains SET name = '#{@name}', location_id = #{@location_id} WHERE id = #{@id};")
+    CONNECTION.execute("UPDATE trains SET name = '#{self.name}', location_id = #{self.location_id} WHERE id = #{self.id};")
   end
   
   # - Deletes row from trains assosiated with Train object
   def delete
-    CONNECTION.execute("DELETE FROM trains WHERE id = #{@id};")
+    CONNECTION.execute("DELETE FROM trains WHERE id = #{self.id};")
   end
   
   # - Adds values for the object into a new row in the database
   def add_to_database
-    CONNECTION.execute("INSERT INTO trains (name, location_id) VALUES ('#{@name}', #{@location_id});")
+    CONNECTION.execute("INSERT INTO trains (name, location_id) VALUES ('#{self.name}', #{self.location_id});")
     @id = CONNECTION.last_insert_row_id
   end
 end
