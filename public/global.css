@@ -6,26 +6,35 @@ html {
 }
 
 body {
-  background-image: url("http://www.goldenvisionforyou.com/blog/wp-content/themes/socrates/background-images/bluegredient_new.jpg");
+  font-family: "Lucida Console", Monaco, monospace;
+  text-align: center;
 }
 
-.button_menu li {
-  display: block;
+#front_header {
+  background-image: url("http://photo24.com/Media/Images/Fine-Art-Print-Galleries/Panorama/Montana-Train-Panoramic.jpg");
+  height: 400px;
+  padding-left: 350px;
+  padding-top: 40px;
 }
 
-.spacing {
-  margin-left: 170px;
+#sub_header {
+  background-color: #DDDACE;
 }
 
-.button_menu ul {
-  -webkit-padding-start: 5px;
+#button_menu ul {
+list-style-type: none;
+-webkit-padding-start: 0px;
+text-align: center;
 }
+
 
 .button {
   display:inline-block;
   min-width: 50px;
   width: 100%;
-  padding:5px 10px;
+  padding: 0px;
+  text-align: center;
+  font-size: 150%;
   
   background: #33CCff;
   -webkit-border-radius: 28;
@@ -33,9 +42,7 @@ body {
   border-radius: 28px;
   font-family: Arial;
   color: #000000;
-  font-size: 20px;
   text-decoration: none;
-  
   border-style: solid;
   border-width: 2px;
 }

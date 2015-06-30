@@ -1,6 +1,15 @@
 <!doctype html>
 
-
+  <style type="text/css">
+  body{
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: 50px;
+  padding: 0
+  }
+  </style>
+  
 <html>
   <head>
     <title>RailFan</title>
@@ -10,14 +19,13 @@
 
   <body>
     <header>
-      <h1> Welcome to Railfan! </h1>
-      
-      <h2> What would you like to do?</h2>
+      <h1 id=front_header> Welcome to Railfan! </h1>
     </header>
     
     <nav>
-      <div class="button_menu">
-        <h2 class="spacing">Users</h2>
+      <div id="button_menu">
+        <h2 id="sub_header">What would you like to do?</h2>
+        <h2>Users</h2>
         <ul>
           <li><a class="button" href="/add_user">Add a new user.</a></li>
           <li><a class="button" href="/view_users">View user information.</a></li>
@@ -25,14 +33,14 @@
           <li><a class="button" href="/delete_user">Delete a user.</a></li>
         </ul>
         
-        <h2 class="spacing">Logs</h2>
+        <h2>Logs</h2>
         <ul>
           <li><a class="button" href="/add_log">Add a new log entry.</a></li>
           <li><a class="button" href="/view_logs">View log information.</a></li>
           <li><a class="button" href="/delete_log">Delete a log entry.</a></li>
         </ul>
         
-        <h2 class="spacing">Trains</h2>
+        <h2>Trains</h2>
         <ul>
           <li><a class="button" href="/add_train">Add a new train.</a></li>
           <li><a class="button" href="/view_trains">View train information.</a></li>
@@ -40,7 +48,7 @@
           <li><a class="button" href="/delete_train">Delete a train.</a></li>
         </ul>
         
-        <h2 class="spacing">Locations</h2>
+        <h2>Locations</h2>
         <ul>
           <li><a class="button" href="/add_location">Add a new location.</a></li>
           <li><a class="button" href="/view_locations">View location information.</a></li>
